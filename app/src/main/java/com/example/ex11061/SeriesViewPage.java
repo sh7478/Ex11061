@@ -1,3 +1,9 @@
+/**
+* @author shaked hazan shaked1246@gmail.com
+* @version 1.0
+* @since 2026-01-30
+* This activity displays a numerical series and information about it.
+*/
 package com.example.ex11061;
 
 import android.content.Intent;
@@ -28,6 +34,15 @@ public class SeriesViewPage extends AppCompatActivity implements AdapterView.OnI
     boolean type;
     double diffQuo;
 
+    /**
+    * Called when the activity is first created. Initializes the UI and the series data.
+    * <p>
+    *
+    * @param savedInstanceState If the activity is being re-initialized after
+    *     previously being shut down then this Bundle contains the data it most
+    *     recently supplied in onSaveInstanceState(Bundle).
+    *     Note: Otherwise it is null.
+    */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,6 +63,12 @@ public class SeriesViewPage extends AppCompatActivity implements AdapterView.OnI
         spin.setAdapter(adp);
     }
 
+    /**
+    * Fills the series array with calculated values based on the series type.
+    * <p>
+    *
+    * @param series The array to be filled with series numbers.
+    */
     private void fillSeries(String[] series) {
         for(int i = 2; i < series.length; i++) {
             if (type) {
@@ -58,6 +79,15 @@ public class SeriesViewPage extends AppCompatActivity implements AdapterView.OnI
         }
     }
 
+    /**
+    * Callback method to be invoked when an item in this view has been selected.
+    * <p>
+    *
+    * @param adapterView The AdapterView where the selection happened.
+    * @param view The view within the AdapterView that was clicked.
+    * @param pos The position of the view in the adapter.
+    * @param rowid The row id of the item that is selected.
+    */
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int pos, long rowid) {
         if(pos != 0){
@@ -67,6 +97,13 @@ public class SeriesViewPage extends AppCompatActivity implements AdapterView.OnI
         }
     }
 
+    /**
+    * Calculates the sum of the series up to a given position.
+    * <p>
+    *
+    * @param pos The position up to which the sum should be calculated.
+    * @return String The formatted sum of the series.
+    */
     private String sum(int pos) {
         if(type)
         {
@@ -78,6 +115,13 @@ public class SeriesViewPage extends AppCompatActivity implements AdapterView.OnI
         }
     }
 
+    /**
+    * Calculates the next number in the series after a given position.
+    * <p>
+    *
+    * @param pos The position of the current number.
+    * @return String The formatted value of the next number in the series.
+    */
     private String nextNum(int pos) {
         if (type) {
             double num = Double.parseDouble(series[1]) * Math.pow(diffQuo, pos);
@@ -87,6 +131,12 @@ public class SeriesViewPage extends AppCompatActivity implements AdapterView.OnI
         }
     }
 
+    /**
+    * Callback method to be invoked when the selection disappears from this view.
+    * <p>
+    *
+    * @param adapterView The AdapterView that now contains no selected item.
+    */
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
         tV.setText("Nothing selected");

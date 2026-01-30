@@ -1,3 +1,10 @@
+/**
+* @author shaked hazan shaked1246@gmail.com
+* @version 1.0
+* @since 2026-01-30
+* This is the main activity of the application. It allows the user to define a numerical series
+* by providing the first number, the difference or quotient, and the type of series (arithmetic or geometric).
+*/
 package com.example.ex11061;
 
 import android.content.Intent;
@@ -25,6 +32,15 @@ public class MainActivity extends AppCompatActivity {
     Switch type;
     AlertDialog.Builder adb;
 
+    /**
+    * Called when the activity is first created. Initializes the UI components.
+    * <p>
+    *
+    * @param savedInstanceState If the activity is being re-initialized after
+    *     previously being shut down then this Bundle contains the data it most
+    *     recently supplied in onSaveInstanceState(Bundle).
+    *     Note: Otherwise it is null.
+    */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,7 +55,6 @@ public class MainActivity extends AppCompatActivity {
      * <p>
      *
      * @param view The view that was clicked.
-     * @return void
      */
     public void confirm(View view) {
         adb = new AlertDialog.Builder(this);
@@ -60,7 +75,6 @@ public class MainActivity extends AppCompatActivity {
         else if(tryParseDecimal(diffQuoInput.getText().toString()) == 1 && type.isChecked())
         {
             adb.setTitle("Error");
-            adb.setMessage("The number of the difference/quotient can't be 1 if the series is Engineering");
             AlertDialog ad = adb.create();
             ad.show();
         }
