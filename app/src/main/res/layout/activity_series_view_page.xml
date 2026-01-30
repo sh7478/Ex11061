@@ -24,7 +24,7 @@
             android:layout_weight="10" />
 
         <Spinner
-            android:id="@+id/spinner"
+            android:id="@+id/spin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1" />
@@ -35,7 +35,7 @@
             android:layout_weight="20" />
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/tV"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="20"

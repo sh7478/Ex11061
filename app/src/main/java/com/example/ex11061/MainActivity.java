@@ -31,6 +31,13 @@ public class MainActivity extends AppCompatActivity {
         diffQuoInput = findViewById(R.id.diffQuoInput);
     }
 
+    /**
+     * This method is called when the confirm button is clicked. It validates the user input and starts the SeriesViewPage activity.
+     * <p>
+     *
+     * @param view The view that was clicked.
+     * @return void
+     */
     public void confirm(View view) {
         adb = new AlertDialog.Builder(this);
         if(tryParseDecimal(firstNumberInput.getText().toString()) == null || tryParseDecimal(diffQuoInput.getText().toString()) == null)
